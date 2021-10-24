@@ -1,0 +1,66 @@
+﻿<Window x:Class="lab_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_01"
+        mc:Ignorable="d"
+        Title="Лабораторная работа №1" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <TabControl  Grid.Column="0" Grid.RowSpan="2">
+            <TabItem Header="Равномерное распределение">
+
+                <StackPanel Width="175" VerticalAlignment="Center">
+                    <TextBlock Text="a:"/>
+                    <TextBox Text="{Binding A}"/>
+
+                    <TextBlock Text="b:" />
+                    <TextBox Text="{Binding B}"/>
+
+                    <Button Click="OnClick_UniformDistribution" ClickMode="Press">Show</Button>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Нормальное распределение">
+                <StackPanel Width="175" VerticalAlignment="Center">
+                    <TextBlock Text="m:"/>
+                    <TextBox Text="{Binding M}"/>
+
+                    <TextBlock Text="sigma:" />
+                    <TextBox Text="{Binding Sigma}"/>
+
+                    <Button Click="OnClick_NormalDistribution" ClickMode="Press">Show</Button>
+                </StackPanel>
+            </TabItem>
+
+
+            <TabItem Header="Настройки графика">
+                <StackPanel Width="150" VerticalAlignment="Center">
+                    <TextBlock Text="Начало графика:"/>
+                    <TextBox Text="{Binding Begin}"/>
+
+                    <TextBlock Text="Конец графика:"/>
+                    <TextBox Text="{Binding End}"/>
+                    
+                    <TextBlock Text="Интервал:" />
+                    <TextBox Text="{Binding Spacing}"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <Image Grid.Column="1" Grid.Row="0" Source="{Binding Path=BitMapImg}" />
+        <Image Grid.Column="1" Grid.Row="1" Source="{Binding Path=BitMapImgFunc}" />
+
+
+    </Grid>
+</Window>

@@ -52,3 +52,7 @@ Mkfile.old
 dkms.conf
 /.vs
 */.vs/*
+/lab_01/lab_01/bin/Debug
+/lab_01/lab_01/obj
+*/obj/*
+*/bin/*
