@@ -5,10 +5,6 @@ from Distributions import UniformDistribution
 from Processor import Processor
 
 if __name__ == '__main__':
-    table = PrettyTable()
-    table.field_names = ['Прибыло', 'Обработано', 'Время работы']
-    table2 = PrettyTable()
-
     # Количество клиентов
     clients_number = 300 
 
@@ -51,14 +47,14 @@ if __name__ == '__main__':
 
     model = Modeller(generator, operators, computers)
     result = model.event_mode()
-    table.add_row([ result['pribilo'],result['processed'], result['time']])
 
-    table2.add_column('Элементы', [('Оператор '+ str(i + 1)) for i in range(len(operators))] + [('Компьютер ' + str(i + 1)) for i in range(len(computers))])
+    table2 = PrettyTable()
+    table2.add_column('Элементы', [('Оператор '+ str(i + 1)) for i in range(len(operators))] + [('Машина ' + str(i + 1)) for i in range(len(computers))])
     table2.add_column('Максимальная очередь', result['max_queue'])
     table2.add_column('Обработано', result['proc_arr'])
     
     print("Количество заявок: ", clients_number)
-    print(table)
+    print("Время работы: " + str(result['time']))
     print(table2)
 
     
